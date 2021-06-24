@@ -41,13 +41,13 @@ marca.addEventListener('change', e => {
 });
 
 year.addEventListener('change', e => {
-    datosBusqueda.year = Number(e.target.value);
+    datosBusqueda.year = (e.target.value);
  
     filtrarAuto();
 });
 
 minimo.addEventListener('change', e => {
-    datosBusqueda.minimo = Number(e.target.value);
+    datosBusqueda.minimo = (e.target.value);
 
     filtrarAuto();
 });
@@ -108,7 +108,7 @@ function noResultado() {
     document.getElementById('resultado').appendChild(noResultado);
 }
 
-function filtrarAuto() {
+const filtrarAuto = function() {
    const resultado = autos.filter(filtrarMarca).filter(filtrarYear).filter(filtrarMinimo).filter(filtrarMaximo).filter(filtrarPuertas).filter(filtrarTransmision).filter(filtrarColor);
 
    if(resultado.length){
@@ -119,46 +119,46 @@ function filtrarAuto() {
 }
 
 
-function filtrarMarca(auto) {
+const filtrarMarca = function(auto) {
     if(datosBusqueda.marca){
         return auto.marca === datosBusqueda.marca;
     } 
     return auto;
 }
-function filtrarYear(auto) {
+const filtrarYear = function(auto) {
     if(datosBusqueda.year){
         return auto.year === datosBusqueda.year;
     }
     return auto;
 }
 
-function filtrarMinimo(auto) {
+const filtrarMinimo = function(auto) {
     if(datosBusqueda.minimo){
         return auto.precio >= datosBusqueda.minimo;
     }
     return auto;
 }
-function filtrarMaximo(auto) {
+const filtrarMaximo = function(auto) {
     if(datosBusqueda.maximo){
         return auto.precio <= datosBusqueda.maximo;
     }
     return auto;
 }
-function filtrarPuertas(auto) {
+const filtrarPuertas = function(auto) {
     if(datosBusqueda.puertas){
         return auto.puertas === datosBusqueda.puertas;
     }
     return auto;
 }
 
-function filtrarTransmision(auto) {
+const filtrarTransmision = function(auto) {
     if(datosBusqueda.transmision){
         return auto.transmision === datosBusqueda.transmision;
     } 
     return auto;
 }
 
-function filtrarColor(auto){
+const filtrarColor = function(auto){
     if(datosBusqueda.color){
         return auto.color === datosBusqueda.color;
     } 
